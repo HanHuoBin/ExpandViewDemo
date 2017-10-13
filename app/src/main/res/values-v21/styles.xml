@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<style name="AppTheme" parent="@style/AppBaseTheme">-->
+        <!--&lt;!&ndash;透明状态栏&ndash;&gt;-->
+        <!--<item name="android:windowTranslucentStatus">false</item>-->
+        <!--&lt;!&ndash;透明导航栏&ndash;&gt;-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <!--&lt;!&ndash;使状态栏，导航栏可绘制&ndash;&gt;-->
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+    <!--</style>-->
+</resources>

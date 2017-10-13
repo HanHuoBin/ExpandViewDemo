@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- action背景 -->
+    <color name="action_color">#ff8800</color>
+    <color name="action_color_start">#ff8800</color>
+    <color name="action_color_end">#ff5800</color>
+    <color name="gray_hint">#66ff8800</color>
+    <color name="action_color_black">#323137</color>
+    <color name="action_color_alpha">#99ffffff</color>
+    <color name="btn_white">#FFFFFF</color>
+    <color name="btn_white_alpha">#66FFFFFF</color>
+    <color name="back_white_alpha">#33FFFFFF</color>
+    <color name="action_bg_gray">#f7f7f7</color>
+    <color name="action_bg_gray_alpha">#88f7f7f7</color>
+    <color name="gray_interest">#B3B3B3</color>
+    <color name="gray_content">#999999</color>
+    <!-- 页面背景 -->
+    <color name="page_bg">#f2f2f2</color>
+    <!-- 页面背景 -->
+    <color name="gray_alp">#33000000</color>
+    <!-- 进度条绿色 -->
+    <color name="progress_green">#97d15c</color>
+    <color name="gray_alpha">#66000000</color>
+
+    <!-- 灰 -->
+    <color name="gray_btn">#e6e6e6</color>
+    <!-- 灰-线 -->
+    <color name="gray_line">#dddddd</color>
+    <!-- 灰-线 -->
+    <color name="gray_bg">#f0eff4</color>
+    <color name="red_txt">#ff6e6e</color>
+    <color name="line">#E5E5E5</color>
+    <color name="white1">#00ffffff</color>
+    <color name="white_found">#66ffffff</color>
+    <color name="green_radio_normal">#689869</color>
+    <!-- 价格文字，按钮(红色) -->
+    <color name="price_btn">#ff5b45</color>
+    <color name="price_btn_alp">#66ff5b45</color>
+    <!-- 标签栏图标、文字(深灰色) -->
+    <color name="deep_gray">#666666</color>
+    <!-- 副标题(灰色) -->
+    <color name="gray_title">#999999</color>
+    <!-- 页面背景色(浅灰色) -->
+    <color name="light_gray_page">#f0eff4</color>
+    <!-- 导航栏背景色(浅灰色) -->
+    <color name="light_gray_bar">#f8f8f8</color>
+    <!-- 1px line(导航栏、标签栏) -->
+    <color name="line_1px_bar">#bbbbbb</color>
+
+    <!-- 登录按钮 -->
+    <color name="login">#1ed26c</color>
+    <color name="login1">#991ed26c</color>
+
+    <!-- 验证码按钮 -->
+    <color name="code_back">#26513a</color>
+    <color name="popup_main_background">#b0000000</color>
+    <color name="choose_eara_item_press_color">#f4f4f4</color>
+    <color name="no_color">#00000000</color>
+    <color name="goods_detail_bottom_bg">#aa7ab479</color>
+    <color name="goods_detail_city_btn">#2ac88e</color>
+    <color name="goods_detail_location_btn">#25d66c</color>
+
+    <!-- 排行榜上位次的颜色 -->
+    <color name="rink_list">#e88f29</color>
+    <color name="green_status">#a1d3a1</color>
+    <color name="order_cancel">#bbbbbb</color>
+    <color name="order_cancel_alp">#66bbbbbb</color>
+
+    <!-- 自取 -->
+    <color name="logistics_invite">#93c3c3</color>
+    <!-- 快递 -->
+    <color name="logistics_express">#a1d3a1</color>
+
+    <!-- 三个标签的背景色 -->
+    <color name="tag_free_send">#2ac88e</color>
+    <color name="tag_heart_send">#ff9a36</color>
+    <color name="tag_gift_exchange">#347fc3</color>
+
+    <!-- 活动状态标志颜色 -->
+    <color name="activity_end">#b3b3b3</color>
+    <color name="activity_starting">#97d15c</color>
+
+    <!-- 项目详情颜色标注 -->
+    <color name="project_title_green">#8be140</color>
+    <color name="project_title_blue">#6aacfa</color>
+    <color name="project_title_yellow">#f59d62</color>
+    <color name="project_title_purple">#ac85fe</color>
+    <color name="project_title_light_blue">#8db4f2</color>
+    <color name="project_title_orange">#f78067</color>
+    <color name="send_code">#dae9fa</color>
+    <!-- 用于特别强调的文字和新消息提示 -->
+    <color name="red_message_count">#f34947</color>
+    <!-- 邀请码 -->
+    <color name="blue_invite">#4791e8</color>
+    <!-- 忘记密码 -->
+    <color name="blue_forget">#336699</color>
+    <!-- 社区姓名颜色 -->
+    <color name="blue_name">#5990cf</color>
+    <color name="blue_link">#336699</color>
+    <!-- 各种状态下的标签颜色 -->
+    <color name="green_tag">#48e09b</color>
+    <color name="gray_tag">#bbbbbb</color>
+
+    <!-- 认投页面的数据颜色 -->
+    <color name="yellow_data">#ff9100</color>
+    <!--提示标签-->
+    <color name="blue_tag">#bfdcff</color>
+    <!--直播背景色-->
+    <color name="course_bg_gray">#3e3c3c</color>
+    <!-- 评论背景色 -->
+    <color name="blue_pla">#f0f5fa</color>
+    <!-- 红色数字 -->
+    <color name="red_money">#f34947</color>
+    <!-- 绿色数字 -->
+    <color name="green_money">#7ab479</color>
+    <!-- 问答绿色背景 -->
+    <color name="green_ask">#44db89</color>
+    <!-- 问答蓝色背景 -->
+    <color name="blue_ask">#4691e9</color>
+    <color name="blue_background">#79b7ef</color>
+
+    <color name="list_item_pressed_bg">#f0f1f3</color>
+    <color name="black_overlay">#66000000</color>
+    <drawable name="default_divider">#d9d9d9</drawable>
+
+    <drawable name="common_navigator">#aeb0b1</drawable>
+    <color name="home_tab_indicator">#8bd0fd</color>
+    <color name="home_title">#3eb0fb</color>
+
+
+    <!-- user profile-->
+    <color name="trans_blue">#e53eb0fb</color>
+    <color name="pure_white">#ffffff</color>
+    <color name="bg_gray">#ebeced</color>
+    <color name="pressed_bg">#7ff0f1f3</color>
+    <color name="divider_dark_gray">#d4d4d6</color>
+    <color name="text_color_dark_gray">#949494</color>
+    <color name="text_color_white">#FFFFFF</color>
+    <color name="window_background">#efeff4</color>
+    <color name="actionbar_bg_pressed">#28ffffff</color>
+    <color name="white_drawable">#f3f3f3</color>
+    <color name="divider_light_gray">#ecedee</color>
+    <color name="text_color_black">#545759</color>
+
+
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+    <!-- 其他界面分割线颜色-->
+    <color name="divider_line_color">#e1e1e1</color>
+
+    <color name="dialog_confirm_btn_bg_color">#fdf3e8</color>
+    <!-- 确认框按钮按下背景色-->
+    <color name="dialog_confirm_btn_bg_pressed_color">#66fdf3e8</color>
+    <!-- 按钮灰色文字禁用色-->
+    <color name="btn_text_disable_color">#66808080</color>
+
+    <color name="mask_color">#00000000</color>
+    <color name="backColor">#22000000</color>
+    <color name="black_50_alpha">#88000000</color>
+    <color name="border_gray">#ffcccccc</color>
+    <color name="gray_text">#333333</color>
+    <color name="translucent">#e0000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="content">#ff444444</color>
+    <!--popup_menu color-->
+    <color name="transparent_background_button">#11000000</color>
+    <color name="transparent_background">#ffffff</color>
+    <!--tab layout color-->
+    <color name="tab_un_selected">#818181</color>
+    <color name="refuse_btn">#f37700</color>
+
+    <!--listview 删除按钮背景色-->
+    <color name="sign_red">#f93c37</color>
+    <color name="sign_cancel">#d9d9d9</color>
+    <!--dialog 取消颜色-->
+    <color name="dialog_cancel">#7e7e7e</color>
+
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#2196F3</color>
+    <color name="colorAccent">#E91E63</color>
+    <color name="backgroundCard">#FFF5F5F5</color>
+    <color name="textColorBg">#eee</color>
+    <color name="textColor">#757575</color>
+    <color name="image_bg">#49A8FC</color>
+    <color name="opinion_color">#ff5a00</color>
+    <color name="lock_back">#fc6e51</color>
+
+
+    <color name="back_red">#ed5565</color>
+    <color name="back_yellow">#ffce54</color>
+    <color name="back_green">#a0d458</color>
+    <color name="back_blue">#4fc1e9</color>
+    <color name="back_purple">#ac92ec</color>
+    <color name="back_pink">#ec87c0</color>
+    <color name="back_cyan">#6dded2</color>
+    <color name="back_orange">#fc6e51</color>
+    <color name="leakage">#ff5a5a</color>
+
+    <color name="open_flashlight">#dbdbdb</color>
+
+
+</resources>
