@@ -1,5 +1,12 @@
 # 基于ExpandableListView的二级树形菜单
 
+
+ * [基本使用](#介绍)
+ * [自定义指示器（箭头）](#自定义指示器（箭头）)
+ * [自定义分割线](#自定义分割线)
+ * [一次点击只展开一项](#一次点击只展开一项)
+
+
 ## 介绍
 ExpandableListView 一种垂直滚动的，展示两级列表的ListView。ExpandableListAdapter 给View提供数据，实例化子布局的适配器。下面我会对ExpandableListAdapter做封装，做成一个通用适配器
 
@@ -355,6 +362,44 @@ expandableListView的下面两个个属性分别设置groupView和childView的di
 android:childDivider
 android:dividerHeight
 ```
+
+### 我们通过在GroupView和ChildView中添加分割线来实现此功能
+
+ **例如：比如我们要实现下图的效果**
+
+![Alt text](images/demo1.jpeg)
+
+ * 1.在父布局添加一个高度为10dp的View，作为分割每个Group的间隔线
+ * 2.在父布局中添加一个高度为1dp的灰色View，作为Group和Child之间的分割线
+ * 3.在child布局中，添加一个高度为1dp的灰色View，做为每一个child的分割线
+
+## 一次点击只展开一项
+
+在实际开发中，我们往往会遇到这样的场景，在点击二级菜单时，在某一个groupItem展开的情况下，点击另一个groupItem，其他的groupItem必须收缩，只展开当前点击项
+
+ * 1.添加Group展开监听，关键在于获取当前展开项位置
+```
+mListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+     @Override
+     public void onGroupExpand(int i) {
+         expandOnlyOne(mListView, i, count);
+     }
+});
+```
+ * 2.对当前group做一个遍历，如果是当前选择项，展开，否则，收缩
+```
+// 每次展开一个分组后，关闭其他的分组
+private boolean expandOnlyOne(ExpandableListView view, int expandedPosition, int groupLength) {
+    boolean result = true;
+    for (int i = 0; i < groupLength; i++) {
+        if (i != expandedPosition && view.isGroupExpanded(i)) {
+            result &= view.collapseGroup(i);
+        }
+    }
+    return result;
+}
+```
+
 
 [简书：基于ExpandableListView的二级树形菜单](http://www.jianshu.com/p/651e519799cb)
 
