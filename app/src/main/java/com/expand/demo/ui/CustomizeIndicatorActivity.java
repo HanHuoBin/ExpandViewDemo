@@ -13,15 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 自定义分割线
  * Created by hanbin on 2017/10/13.
  */
 
-public class NormalExpandActivity extends BaseAppCatActivity {
+public class CustomizeIndicatorActivity extends BaseAppCatActivity {
 
-    private ExpandableListView                            mListView  = null;
-    private NormalExpandAdapter<ProvinceModel, CityModel> mAdapter   = null;
-    private List<ProvinceModel>                           mGroupList = new ArrayList<>();//父级
-    private List<List<CityModel>>                         mChildList = new ArrayList<>();//子级
+    private ExpandableListView mListView = null;
+    private NormalExpandAdapter<ProvinceModel, CityModel> mAdapter = null;
+    private List<ProvinceModel> mGroupList = new ArrayList<>();
+    private List<List<CityModel>> mChildList = new ArrayList<>();
 
     @Override
     protected int initLayout() {
@@ -33,8 +34,7 @@ public class NormalExpandActivity extends BaseAppCatActivity {
         initToolBar();
         setTooBarBackBtn();
         mListView = (ExpandableListView) findViewById(R.id.expandable_list_view);
-        mAdapter = new NormalExpandAdapter<ProvinceModel, CityModel>(this, mGroupList, mChildList,
-                R.layout.layout_item_group, R.layout.layout_item_child) {
+        mAdapter = new NormalExpandAdapter<ProvinceModel, CityModel>(this, mGroupList, mChildList, R.layout.layout_item_group_two, R.layout.layout_item_child_two) {
             @Override
             public void groupConvert(ViewHolder helper, ProvinceModel item, boolean isExpanded) {
                 helper.setText(R.id.tv_name, item.getName());
@@ -47,8 +47,8 @@ public class NormalExpandActivity extends BaseAppCatActivity {
                 helper.setText(R.id.tv_number, item.getNumber());
             }
         };
+        mListView.setDividerHeight(0);
         mListView.setGroupIndicator(null);
-//        mListView.setGroupIndicator(getResources().getDrawable(R.drawable.selector_expand_list_indicator));
         mListView.setAdapter(mAdapter);
     }
 
@@ -59,7 +59,8 @@ public class NormalExpandActivity extends BaseAppCatActivity {
         mGroupList.add(new ProvinceModel("安徽", 1002, "1002", "省"));
         mGroupList.add(new ProvinceModel("江苏", 1003, "1003", "省"));
         mGroupList.add(new ProvinceModel("四川", 1004, "1004", "省"));
-        String[] citys = new String[] { "绍兴", "湖州", "嘉兴", "杭州" };
+        mGroupList.add(new ProvinceModel("海南", 1005, "1005", "省"));
+        String[] citys = new String[]{"绍兴", "湖州", "嘉兴", "杭州"};
         for (int i = 0; i < 4; i++) {
             List<CityModel> itemList = new ArrayList<>();
             itemList.add(new CityModel(citys[i] + i, 2001, "2001", "市区"));
@@ -68,6 +69,7 @@ public class NormalExpandActivity extends BaseAppCatActivity {
             itemList.add(new CityModel(citys[i] + i, 2004, "2004", "市区"));
             mChildList.add(itemList);
         }
+        mChildList.add(new ArrayList<CityModel>());
         mAdapter.notifyDataSetChanged();
     }
 }

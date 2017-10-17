@@ -19,6 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.expand.demo.ui.NormalExpandActivity" />
+        <activity android:name="com.expand.demo.ui.CustomExpandActivity" />
+        <activity android:name="com.expand.demo.ui.CustomizeIndicatorActivity" />
+        <activity android:name="com.expand.demo.ui.ExpandOnceActivity" />
 
     </application>
 

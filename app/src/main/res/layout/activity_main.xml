@@ -12,4 +12,25 @@
         style="@style/style_item_text"
         android:text="二级菜单" />
 
+    <View style="@style/line" />
+
+    <TextView
+        android:id="@+id/tv_demo_1"
+        style="@style/style_item_text"
+        android:text="菜单指示器显示在右边" />
+
+    <View style="@style/line" />
+
+    <TextView
+        android:id="@+id/tv_demo_2"
+        style="@style/style_item_text"
+        android:text="自定义分割线" />
+
+    <View style="@style/line" />
+
+    <TextView
+        android:id="@+id/tv_demo_3"
+        style="@style/style_item_text"
+        android:text="一次只展开一项" />
+
 </LinearLayout>

@@ -55,7 +55,7 @@ ExpandableListView 一种垂直滚动的，展示两级列表的ListView。Expan
  mAdapter = new NormalExpandAdapter<ProvinceModel, CityModel>(this, mGroupList, mChildList,
         R.layout.layout_item_group, R.layout.layout_item_child) {
     @Override
-    public void groupConvert(ViewHolder helper, ProvinceModel item) {
+    public void groupConvert(ViewHolder helper, ProvinceModel item, boolean isExpanded) {
         helper.setText(R.id.tv_name, item.getName());
         helper.setText(R.id.tv_number, item.getNumber());
     }
@@ -82,16 +82,17 @@ ExpandableListView 一种垂直滚动的，展示两级列表的ListView。Expan
     + ListView中，我们需要加载大量数据，如果每次都创建View，会占用大量的内存，影响性能，所以这里使用了ViewHolder
     + 在getGroupView() 和 getChildView()中，通过抽象方法，将ViewHolder和当前position的Model回调到Activity中使用
     + **这样子就将Adapter封装成一个万能的适配器，不在适配器中做任何渲染UI的操作，不管数据源的Model形式，布局样式，适配器永远一个**
+    + 在getGroupView中isExpanded表示当前item是否被选中，将它回调可以用于自定义指示器
 ```
     @Override
-    public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
+    public View getGroupView(int i, boolean isExpanded, View view, ViewGroup viewGroup) {
         final ViewHolder viewHolder = getGroupViewHolder(i, view, viewGroup);
-        groupConvert(viewHolder, getGroup(i));
+        groupConvert(viewHolder, getGroup(i),isExpanded);
         return viewHolder.getConvertView();
     }
 
     @Override
-    public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
+    public View getChildView(int i, int i1, boolean isExpanded, View view, ViewGroup viewGroup) {
         final ViewHolder viewHolder = getChildViewHolder(i, i1, view, viewGroup);
         childConvert(viewHolder, getChild(i, i1));
         return viewHolder.getConvertView();
@@ -102,7 +103,7 @@ ExpandableListView 一种垂直滚动的，展示两级列表的ListView。Expan
         return false;
     }
 
-    public abstract void groupConvert(ViewHolder helper, T item);
+    public abstract void groupConvert(ViewHolder helper, T item, boolean isExpanded);
     public abstract void childConvert(ViewHolder helper, U item);
 ```
 
@@ -277,3 +278,84 @@ public class ViewHolder {
 
 }
 ```
+
+## 自定义指示器（箭头）
+
+隐藏左侧箭头
+```
+ mListView.setGroupIndicator(null);
+```
+
+创建一个选择器selector
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/indicator_down" android:state_expanded="true" />
+    <item android:drawable="@mipmap/indicator_right" />
+</selector>
+```
+
+使用
+
+```
+mListView.setGroupIndicator(getResources().getDrawable(R.drawable.selector_expand_list_indicator));
+```
+
+## 指示器显示在右边
+
+ * 1.隐藏左侧箭头
+ ```
+ mListView.setGroupIndicator(null);
+ ```
+ * 2.创建在父级的layout中，新增一个ImageView表示箭头
+ ```
+ <ImageView
+         android:id="@+id/img_indicator"
+         android:layout_width="30dp"
+         android:layout_height="30dp"
+         android:scaleType="centerInside"
+         android:src="@mipmap/indicator_right"
+         android:visibility="gone"
+         android:padding="@dimen/dp_10"/>
+ ```
+ * 3.通过NormalExpandAdapter回调的当前是否选择状态控制箭头的上下
+
+```
+mAdapter = new NormalExpandAdapter<ProvinceModel, CityModel>(this, mGroupList, mChildList,
+                R.layout.layout_item_group, R.layout.layout_item_child) {
+            @Override
+            public void groupConvert(ViewHolder helper, ProvinceModel item, boolean isExpanded) {
+                helper.setText(R.id.tv_name, item.getName());
+                helper.setText(R.id.tv_number, item.getNumber());
+                ImageView indicatorImg = helper.getView(R.id.img_indicator);
+                indicatorImg.setVisibility(View.VISIBLE);
+                //表示当前选中状态，选中箭头向下，未选择状态箭头向上
+                if (isExpanded) {
+                    indicatorImg.setImageDrawable(getResources().getDrawable(R.mipmap.indicator_down));
+                } else {
+                    indicatorImg.setImageDrawable(getResources().getDrawable(R.mipmap.indicator_right));
+                }
+            }
+
+            @Override
+            public void childConvert(ViewHolder helper, CityModel item) {
+                helper.setText(R.id.tv_name, item.getName());
+                helper.setText(R.id.tv_number, item.getNumber());
+            }
+        };
+```
+
+## 自定义分割线
+
+expandableListView的下面两个个属性分别设置groupView和childView的divider
+但是dividerHeight同时影响着group和child的divider，所以我们更愿意自己来定义分割线
+
+```
+android:childDivider
+android:dividerHeight
+```
+
+[简书：基于ExpandableListView的二级树形菜单](http://www.jianshu.com/p/651e519799cb)
+
+[Github：基于ExpandableListView的二级树形菜单](https://github.com/HanHuoBin/ExpandViewDemo)

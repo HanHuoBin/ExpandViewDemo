@@ -12,11 +12,11 @@ import java.util.List;
  */
 
 public abstract class NormalExpandAdapter<T, U> extends BaseExpandableListAdapter {
-    protected Context     mContext;
-    private List<T>       groupList;
+    protected Context mContext;
+    private List<T> groupList;
     private List<List<U>> childList;
-    private int           groupLayoutId;
-    private int           childLayoutId;
+    private int groupLayoutId;
+    private int childLayoutId;
 
     public NormalExpandAdapter(Context context, List<T> groupList, List<List<U>> childList,
                                int groupLayoutId, int childLayoutId) {
@@ -63,14 +63,14 @@ public abstract class NormalExpandAdapter<T, U> extends BaseExpandableListAdapte
     }
 
     @Override
-    public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
+    public View getGroupView(int i, boolean isExpanded, View view, ViewGroup viewGroup) {
         final ViewHolder viewHolder = getGroupViewHolder(i, view, viewGroup);
-        groupConvert(viewHolder, getGroup(i));
+        groupConvert(viewHolder, getGroup(i), isExpanded);
         return viewHolder.getConvertView();
     }
 
     @Override
-    public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
+    public View getChildView(int i, int i1, boolean isExpanded, View view, ViewGroup viewGroup) {
         final ViewHolder viewHolder = getChildViewHolder(i, i1, view, viewGroup);
         childConvert(viewHolder, getChild(i, i1));
         return viewHolder.getConvertView();
@@ -81,7 +81,7 @@ public abstract class NormalExpandAdapter<T, U> extends BaseExpandableListAdapte
         return false;
     }
 
-    public abstract void groupConvert(ViewHolder helper, T item);
+    public abstract void groupConvert(ViewHolder helper, T item, boolean isExpanded);
 
     public abstract void childConvert(ViewHolder helper, U item);
 
